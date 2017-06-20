@@ -29,7 +29,7 @@ To generate actuator outputs the MPC predicts the vehicle’s path and then trie
 
 The **cost function** is designed to set different emphasis on the effect of certain states actuations. This  way a focus can be set on the car keeping on track over the regulation to a constant speed level for example. In addition erratic behaviour like sudden and extreme changes of steering angle can be avoided systematically.
 
-The presented algorithm uses the **optimization solver** *[Ipopt](https://projects.coin-or.org/Ipopt)*. The solver takes all state and actuator variables in a single vector and returns the control inputs that minimizes the cost function. 
+The presented algorithm uses the **optimization solver** *[Ipopt](https://projects.coin-or.org/Ipopt)*. The solver takes all state and actuator variables in a single vector and returns control inputs that minimizes the cost function. 
 
 
 ## Timestep Length and Elapsed Duration 
