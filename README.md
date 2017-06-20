@@ -57,17 +57,19 @@ Higher values of *dt* on the other hand first result in slowing down the speed i
 
 ## Polynomial Fitting and MPC Preprocessing
 
-When getting input from the simulator, the presented algorithm reads in the vehicle’s states and actuators. In order to simplify further calculations a **transformation into a different orientation space** is applied by shifting the car’s reference angle to 90 degrees. After a **polynomial ** describing the the car’s trajectory can be **fit to waypoints** (*x*, *y*) using vectors of the *[Eigen library](http://eigen.tuxfamily.org/index.php?title=Main_Page)* for linear algebra . By evaluating the polynomial’s coefficients, in this case at the initial point due to above mentioned transformation, the cross track error is calculated. And as shown before the orientation error is calculated as follows: *eψ* = *ψ* − *ψdes*. The latter *ψdes* can be calculated by applying trignometry. Leading to the as well simplified orientation error of: 
+When getting input from the simulator, the presented algorithm reads in the vehicle’s states and actuators. In order to simplify further calculations a **transformation into a different orientation space** is applied by shifting the car’s reference angle to 90 degrees. Afterwards a **polynomial** describing the car’s trajectory can be **fit to waypoints** ( *x*, *y* ) using vectors of the *[Eigen library](http://eigen.tuxfamily.org/index.php?title=Main_Page)* for linear algebra. By evaluating the polynomial’s coefficients, in this case at the initial point due to above mentioned transformation, the cross track error is calculated. As shown before the orientation error is described by following equation: *eψ* = *ψ* − *ψdes*. The latter *ψdes* is acquired by applying trignometry, leading to the, as well simplified, orientation error of: 
 
-```
+```c++
 double epsi = -atan(coeffs[1]);
 ```
+
 
 In order to allow **visual debugging** the simulator is fed with waypoints for a reference line (yellow) and the trajectory currently predicted by the MPC (green).
 
 
 
 ![Screenshot of simulation result](Screenshot%20from%202017-06-19%2021-37-11.png?raw=true "Screenshot of simulation result")
+
 
 
 ## Conclusion
