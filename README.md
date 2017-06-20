@@ -51,7 +51,7 @@ double dt = 0.1;
 
 Higher values of *N* slower down the controller's reaction time, which finally leads to the car getting off the road in critical situations (as approaching tight turns at higher speed). Lower values of *N* limit the number of predicted states and therefor taking away the ability to adjust steering appropriately while approaching situations which demand certain foresight, like tight turns for instance. 
 
-Higher values of *dt* on the other hand first result in slowing down the speed in curves drastically making the controller ineffective and finally lower values of *dt* cause oscillation which leads to the car getting of the track very quickly.
+Higher values of *dt* on the other hand first result in slowing down the speed in curves drastically making the controller ineffective. And finally lower values of *dt* cause oscillation which leads to the car getting off the track very quickly.
 
 
 
