@@ -23,7 +23,7 @@ To set up **model constraints** based on the vehicle model following equations a
 
 *Lf* refers to physical characteristics of the vehicle, changing i.e. with size depending of the car’s center of gravity. 
 
-To generate actuator outputs the MPC predicts the vehicle’s path and then tries to minimize the differences to the reference trajectory. As mentioned above the errors of interest are the cross track error cte and the orientation error *eψ*: 
+To generate actuator outputs the MPC predicts the vehicle’s path and then tries to minimize the differences to the reference trajectory. As mentioned above the errors of interest are the cross track error *cte* and the orientation error *eψ*: 
 
 ![Errors](eq-2.png?raw=true "Errors")
 
