@@ -36,17 +36,19 @@ The presented algorithm uses the **optimization solver** *[Ipopt](https://projec
 
 How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt* and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, increasing computational costs as well:
 
-```
+```c++
 *size_t* n_vars = N * 6 + (N - 1) * 2;
 ```
 
 It has been experimentally verified that the best results for this simulation are achieved by:
 
+```pseudo
 *N* = 7 .. 10
 *dt* = 0.1
+```
 
-Higher values of *N* slower down the controller's reaction time, which finally leads to the car getting off the road in critical situations (as approaching tight turns at higher speed). Lower values of *N* limit the number of predicted states and therefor, taking away the ability to adjust steering appropriately while approaching situation which demand certain foresight, tight turns for instance. 
-Higher values of *dt* first result in slowing down the speed in curves drastically making the controller ineffective and finally lower values of *dt* cause oscillation which leads to the car getting of the track very quickly.
+Higher values of *N* slower down the controller's reaction time, which finally leads to the car getting off the road in critical situations (as approaching tight turns at higher speed). Lower values of *N* limit the number of predicted states and therefor taking away the ability to adjust steering appropriately while approaching situations which demand certain foresight, like tight turns for instance. 
+Higher values of *dt* on the other hand first result in slowing down the speed in curves drastically making the controller ineffective and finally lower values of *dt* cause oscillation which leads to the car getting of the track very quickly.
 
 
 
