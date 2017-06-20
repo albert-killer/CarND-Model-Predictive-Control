@@ -13,10 +13,9 @@ Model predictive control (MPC) is an advanced method of process control for comp
 
 To build the MPC for this project a **kinematic model** is applied, which takes into account following variables describing the car’s state and actuator inputs: 
 
-**States**: [ *x*, *y*, *ψ*, *v* ] 
+**States**: [ *x*, *y*, *ψ*, *v* ] ... *x* and *y* beeing the location coordinates, *psi* the vehicle's orientation angle and *v* the velocity. 
 
-
-**Actuators**: [ *δ*, *a* ] 
+**Actuators**: [ *δ*, *a* ] ... *delta* beeing the steering angle, an *a* the vehicle's acceleration
 
 To set up **model constraints** based on the vehicle model following equations are used: 
 
