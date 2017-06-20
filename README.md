@@ -34,11 +34,11 @@ The presented algorithm uses the **optimization solver** *[Ipopt](https://projec
 
 ## Timestep Length and Elapsed Duration 
 
-How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt* and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, as well increasing the computational costs:
+How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt* and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, increasing computational costs as well:
 
-'''
+```
 *size_t* n_vars = N * 6 + (N - 1) * 2;
-'''
+```
 
 It has been experimentally verified that the best results for this simulation are achieved by:
 
@@ -54,9 +54,9 @@ Higher values of *dt* first result in slowing down the speed in curves drastical
 
 When getting input from the simulator the presented algorithm reads in the vehicle’s states and actuators. In order to simply further calculations a **transformation into a different orientation space** is applied by shifting the car’s reference angle to 90 degrees. After a **polynomial ** describing the the car’s trajectory can be **fit to waypoints** (*x*, *y*) using vectors of the *[Eigen library](http://eigen.tuxfamily.org/index.php?title=Main_Page)* for linear algebra . By evaluating the polynomial’s coefficients, in this case at the initial point due to above mentioned transformation, the cross track error is calculated. And as shown before the orientation error is calculated as follows: *eψ* = *ψ* − *ψdes*. The latter *ψdes* can be calculated by applying trignometry. Leading to the as well simplified orientation error of: 
 
-'''
+```
 double epsi = -atan(coeffs[1]);
-'''
+```
 
 In order to allow **visual debugging** the simulator is fed with waypoints for a reference line (yellow) and the trajectory currently predicted by the MPC (green).
 
