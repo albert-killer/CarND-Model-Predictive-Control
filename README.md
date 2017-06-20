@@ -6,7 +6,7 @@ This is the project repository for **Project No. 5 Model Predictive Control**, p
 
 ## MPC for Autonomous Driving
 
-Model predictive control (MPC) is an advanced method of process control for complex dynamic systems, with self-driving cars beeing one them. By applying a time-discrete dynamic model it allows us to predict future behaviour of a system in accordance to its input signals, as vehicle steering or throttle. While an optimal output signal is calculated for *N* steps in advance, the optimization calculation itself is repeated over again after each *N*-th processing step on basis of the currently measured states, i.e. the position of the vehicle on the road. In order to effectively optimize predictions a cost function is set up to minimize erros. These errors, consist of deviations to references values, are referred to as cross track error or steering angle error. 
+Model predictive control (MPC) is an advanced method of process control for complex dynamic systems, with self-driving cars beeing one them. By applying a time-discrete dynamic model it allows us to predict future behaviour of a system in accordance to its input signals, as vehicle steering or throttle. While an optimal output signal is calculated for *N* steps in advance, the optimization calculation itself is repeated over again after each *N*-th processing step on basis of the currently measured states, i.e. the position of the vehicle on the road. In order to effectively optimize predictions a cost function is set up to minimize erros. These errors, consisting of deviations to references values, are referred to as cross track error or steering angle error. 
 
 
 ## Model
