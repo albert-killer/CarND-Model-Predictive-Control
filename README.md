@@ -6,7 +6,9 @@ This is the project repository for **Project No. 5 Model Predictive Control**, p
 
 ## MPC for Autonomous Driving
 
-Model predictive control (MPC) is an advanced method of process control for complex dynamic systems, with self-driving cars beeing one them. By applying a time-discrete dynamic model it allows us to predict future behaviour of a system in accordance to its input signals, as vehicle steering or throttle. While an optimal output signal is calculated for *N* steps in advance, the optimization calculation itself is repeated over again after each *N*-th processing step on basis of the currently measured states, i.e. the position of the vehicle on the road. In order to effectively optimize predictions a cost function is set up to minimize erros. These errors, consisting of deviations to references values, are referred to as *cross track error* and *steering angle error*. 
+Model predictive control (MPC) is an advanced method of process control for complex dynamic systems, with self-driving cars beeing one them. By applying a time-discrete dynamic model it allows us to predict future behaviour of a system in accordance to its input signals, as vehicle steering or throttle. 
+
+While an optimal output signal is calculated for *N* steps in advance, the optimization calculation itself is repeated over again after each *N*-th processing step on basis of the currently measured states, i.e. the position of the vehicle on the road. In order to effectively optimize predictions a cost function is set up to minimize erros. These errors, consisting of deviations to references values, are referred to as *cross track error* and *steering angle error*. 
 
 
 ## Model
@@ -37,17 +39,18 @@ The presented algorithm uses the **optimization solver** *[Ipopt](https://projec
 How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt* and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, increasing computational costs as well:
 
 ```c++
-*size_t* n_vars = N * 6 + (N - 1) * 2;
+size_t n_vars = N * 6 + (N - 1) * 2;
 ```
 
 It has been experimentally verified that the best results for this simulation are achieved by:
 
-```pseudo
-*N* = 7 .. 10
-*dt* = 0.1
+```c++
+size_t N = 9; // okay between 7 and 10 
+double dt = 0.1;
 ```
 
 Higher values of *N* slower down the controller's reaction time, which finally leads to the car getting off the road in critical situations (as approaching tight turns at higher speed). Lower values of *N* limit the number of predicted states and therefor taking away the ability to adjust steering appropriately while approaching situations which demand certain foresight, like tight turns for instance. 
+
 Higher values of *dt* on the other hand first result in slowing down the speed in curves drastically making the controller ineffective and finally lower values of *dt* cause oscillation which leads to the car getting of the track very quickly.
 
 
