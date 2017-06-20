@@ -34,7 +34,7 @@ The presented algorithm uses the **optimization solver** *[Ipopt](https://projec
 
 ## Timestep Length and Elapsed Duration 
 
-How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt * and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, as well increasing the computational costs:
+How far into the future our prediction should be made, is defined by the product of the timestep length *N* and the elapsed duration *dt* and refered to as the prediction horizon *T*. It should be as large as possible while *dt* should be as small as possible.  At the same time the smaller the duration *dt* becomes, the heavier to compute, because all the MPC's calculations have to be done within one duration *dt*. *N* also sets the number of variables optimized by the MPC, as well increasing the computational costs:
 
 '''
 *size_t* n_vars = N * 6 + (N - 1) * 2;
