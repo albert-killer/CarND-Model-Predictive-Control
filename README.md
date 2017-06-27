@@ -73,16 +73,15 @@ In order to allow **visual debugging** the simulator is fed with waypoints for a
 
 ## Handling Latency
 
-In order to get this simulation closer a little close to a realistic scenario, we have to consider latency.
-Latency describes the delay caused by the time needed for a controller's actuation output signal to become an actual steering maneuver of a vehicle.
+In order to get this simulation a little closer to a realistic scenario, we have to consider latency. Latency describes the delay caused by the time needed for a controller's actuation output signal to become an actual steering maneuver of a vehicle.
 
 One approach to take this effect into account is to predict the future state after the delay caused by the latency using the **kinematic equations** (cp. equations above). This prediction should then be the input state for the MPC. 
 
 As following videos of the simulator show, ignoring the latency slows down the steering reaction and amplifies oscillation.  
 
-* Simulation, *considering latency* of 100 ms: 
+* Simulation, *considering latency* of 100 ms: https://youtu.be/9pfyWmesjhY
 
-* Simulation, *ignoring* latency* of 100 ms:
+* Simulation, *ignoring latency* of 100 ms: https://youtu.be/UBLjkUbnDw4
 
 
 ## Conclusion
