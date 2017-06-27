@@ -77,7 +77,7 @@ In order to get this simulation a little closer to a realistic scenario, we have
 
 One approach to take this effect into account is to predict the future state after the delay caused by the latency using the **kinematic equations** (cp. equations above). This prediction should then be the input state for the MPC. 
 
-As following videos of the simulator show, ignoring the latency slows down the steering reaction and amplifies oscillation.  
+As following videos, taken from the simulator, show, ignoring latency slows down steering reaction and amplifies oscillation.  
 
 * Simulation, *considering latency* of 100 ms: https://youtu.be/9pfyWmesjhY
 
