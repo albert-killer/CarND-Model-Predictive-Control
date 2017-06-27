@@ -123,9 +123,23 @@ int main() {
           // Simplification:
           double epsi = -atan(coeffs[1]);
 
+          // TODO: Consider latency
+          // Using vehicle model starting from current state for duration of latency
+          // Resulting state from the simulation shall be new initial state for MPC
+          // Remember from above: px, py and psi are zero
+
+          double dt = 0.1; // latency 100 ms
+
+          // Predict future state after delay caused by latency using the kinematic equations:
+          px = v * dt; // psi = 0 --> cos(0) = 1
+          py = 0.0; // psi = 0 --> sin(0) = 0
+          psi = (v / Lf) * -steer_value * dt; // multiply steering by -1 required because simulator needs it the other way round
+          cte = cte + v * sin(epsi) * dt;
+          epsi = epsi + (v / Lf) * -steer_value * dt;
+          v = v + throttle_value * dt; // v at the end because original value needed by other equations
+
           Eigen::VectorXd state(6);
-          // px, py, psi have to be to zero here
-          state << 0, 0, 0, v, cte, epsi;
+          state << px, py, psi, v, cte, epsi;
 
           // Model Predictive Control (MPC)
           auto vars = mpc.Solve(state, coeffs);
