@@ -71,17 +71,31 @@ In order to allow **visual debugging** the simulator is fed with waypoints for a
 ![Screenshot of simulation result](Screenshot%20from%202017-06-19%2021-37-11.png?raw=true "Screenshot of simulation result")
 
 
+## Handling Latency
+
+In order to get this simulation closer a little close to a realistic scenario, we have to consider latency.
+Latency describes the delay caused by the time needed for a controller's actuation output signal to become an actual steering maneuver of a vehicle.
+
+One approach to take this effect into account is to predict the future state after the delay caused by the latency using the **kinematic equations** (cp. equations above). This prediction should then be the input state for the MPC. 
+
+As following videos of the simulator show, ignoring the latency slows down the steering reaction and amplifies oscillation.  
+
+* Simulation, *considering latency* of 100 ms: 
+
+* Simulation, *ignoring* latency* of 100 ms:
+
 
 ## Conclusion
 
-**Advantages**:
+Advantages of MPC:
 * Predictive ability on basis of calculating future events (advantage over controllers like PID i.e.)
 * Considers disturbances well
-* Tuning different parameters possible
+* Tuning different parameters *possible*
+* Able to accurately deal with latency on basis of a vehicle model
 
-**Disadvantages**:
+Disadvantages of MPC:
 * Computantionally expensive
-* Tuning different parameters required
+* Tuning different parameters *required*
 
 
 Want to know more about MPC? Have a look at this one: https://en.wikipedia.org/wiki/Model_predictive_control
