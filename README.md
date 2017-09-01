@@ -42,9 +42,3 @@ As a result the implemented Path Planner is able to drive the car safely along t
 In order to increase speed and safety while maneuvering through dense traffic, decision making of the Behavioural Planner can be improved. This is achieved by adding more detailed cost functions which for example involve the difference of several car’s velocities or smaller distance classifications.   
 Safety while performing lane changes can be increased as well by switching to a more advanced FSM using additional states. 
 By updating the relative velocity *rel_vel* within the trajectory generation while going through every point, the reaction time of speed adjustments could be improved.  
-
-
-
-Designed a 
-
-Implemented an advanced process control method (MPC) to optimize actuation inputs for a self-driving car's simulation, involving application of Kinematic model and cost function tuning 
